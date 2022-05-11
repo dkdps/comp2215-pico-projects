@@ -25,6 +25,7 @@ void midi_task(void);
 void imu_init(void);
 float clamp(float d, float min, float max);
 
+// https://github.com/infovore/pico-example-midi
 int main()
 {
 
