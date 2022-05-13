@@ -42,6 +42,7 @@ void spi1_dma_isr();
 // selects.
 static spi_t spis[] = {  // One for each SPI.
     {
+        // Changed these values to work with the maker pi board.
         .hw_inst = spi1,  // SPI component
         .miso_gpio = 12, // GPIO number (not pin number)
         .mosi_gpio = 11,

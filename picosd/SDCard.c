@@ -3,13 +3,12 @@
 #include "ff.h"
 #include "f_util.h"
 #include "hw_config.h"
-#include "rtc.h"
 
+/**
+ * Based on https://github.com/carlk3/no-OS-FatFS-SD-SPI-RPi-Pico/blob/master/simple_example/simple_example.cpp
+ */
 int main() {
     stdio_init_all();
-    time_init();
-
-    puts("Hello, world!");
 
     // See FatFs - Generic FAT Filesystem Module, "Application Interface",
     // http://elm-chan.org/fsw/ff/00index_e.html
@@ -19,7 +18,7 @@ int main() {
     FRESULT fr = f_mount(&pSD->fatfs, pSD->pcName, 1);
     if (FR_OK != fr) panic("f_mount error: %s (%d)\n", FRESULT_str(fr), fr);
 
-    // Create a file.
+    // Open.
     FIL fil;
     const char* const filename = "filename.txt";
     fr = f_open(&fil, filename, FA_OPEN_APPEND | FA_WRITE);
@@ -27,7 +26,7 @@ int main() {
         panic("f_open(%s) error: %s (%d)\n", filename, FRESULT_str(fr), fr);
     
     // Write to the file.
-    if (f_printf(&fil, "Hello, world!\n") < 0) {
+    if (f_printf(&fil, "Hello, pico!\n") < 0) {
         printf("f_printf failed\n");
     }
 
@@ -40,7 +39,6 @@ int main() {
     // Deregister the workspace.
     f_unmount(pSD->pcName);
 
-    puts("Goodbye, world!");
     for(;;);
     
     

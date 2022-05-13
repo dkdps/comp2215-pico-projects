@@ -7,7 +7,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Initialise pico_sdk from installed location
 # (note this can come from environment, CMake cache etc)
-set(PICO_SDK_PATH "/mnt/c/Users/champ/Documents/Programming/pico-sdk")
+# Change this to where you store your pico sdk
+set(PICO_SDK_PATH "~/coursework/comp2215/pico-sdk")
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)

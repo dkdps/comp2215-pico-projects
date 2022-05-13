@@ -170,24 +170,8 @@ int main()
     sleep_ms(1000);                   // Give the Pico some time to think...
     ST7735_Init();                    // Initialise the screen
 
-      
-    // Fill with black
-    //ST7735_FillScreen(ST7735_BLACK);
     mandelbrot();
     //ship();
-
-    /*
-    for(int x = 0; x < 80; x++){ // x axis a is 0
-        ST7735_DrawPixel(80-x, 0, ST7735_WHITE);
-        sleep_ms(10);
-    } // y=0 is m, m-->A
-
-    for(int y = 0; y < 160; y++){ 
-        ST7735_DrawPixel(0, 160-y, ST7735_WHITE);
-        sleep_ms(10);
-    } // x=0 is m, m-->Z
-    */
-
 
     sleep_ms(20000); // Sleep for 20 seconds
 }
